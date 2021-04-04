@@ -32,6 +32,7 @@ package com.raywenderlich.snowy
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.opengl.Visibility
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Website.URL
 import android.view.LayoutInflater
@@ -111,6 +112,7 @@ class TutorialFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     val tutorial = arguments?.getParcelable(TUTORIAL_KEY) as Tutorial
+    progressBar.visibility = View.VISIBLE
     coroutineScope.launch(Dispatchers.Main) {
       val originalBitmap = getOriginalBitmapAsync(tutorial).await()
       //1
